@@ -1,8 +1,12 @@
-char	*ft_memchr(char *str, int c, int n)
+#include <stddef.h>
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	while (*str != c && n--)
-		str++;
-	if (*str || n)
-		return (str);
+	while (n--)
+	{
+		if (*(char *)s == c)
+			return ((void *)s);
+		s++;
+	}
 	return (0);
 }

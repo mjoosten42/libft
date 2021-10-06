@@ -1,9 +1,11 @@
-void	*ft_memset(void *b, int c, int len)
-{
-	void *start;
+#include <stddef.h>
 
-	start = b;
+void	*ft_memset(void *b, int c, size_t len)
+{
+	char	*str;
+
+	str = (char *)b;
 	while (len--)
-		*(char *)b++ = (unsigned char) c;
-	return (start);
+		*str++ = (unsigned char)c;
+	return (b);
 }

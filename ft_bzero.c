@@ -1,6 +1,7 @@
-void	ft_bzero(char *str, int n)
+#include <stddef.h>
+
+void	ft_bzero(void *s, size_t n)
 {
 	while (n--)
-		*str++ = 0;
-	return ;
+		*(char *)s++ = 0;
 }

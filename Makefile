@@ -1,8 +1,22 @@
-CC = gcc
-Flags = -Wall -Werror -Wextra
+NAME = libft.a
+FLAGS = -Wall -Werror -Wextra -c
+SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c ft_strlen.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memset.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_bzero.c ft_strlcpy.c ft_strlcat.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c
+OBJ = $(SRC:.c=.o)
 
-make:
-	$(CC) $(Flags) *.c
+all: $(NAME)
 
-clean: a.out
-	rm a.out
+$(NAME): $(OBJ)
+
+$(OBJ): $(SRC)
+	gcc $(FLAGS) $(SRC)
+	ar -crs $(NAME) $(OBJ)
+
+clean:
+	rm $(OBJ)
+
+fclean: clean
+	rm $(NAME)
+
+re: fclean all
+
+.PHONY = all clean fclean re
