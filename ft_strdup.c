@@ -1,7 +1,6 @@
-#include <stddef.h>
 #include <stdlib.h>
 
-static size_t	ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 
 char	*ft_strdup(const char *s1)
 {
@@ -13,14 +12,4 @@ char	*ft_strdup(const char *s1)
 	while (len--)
 		*(s2 + len) = *(s1 + len);
 	return (s2);
-}
-
-static size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (*(str + i))
-		i++;
-	return (i);
 }
