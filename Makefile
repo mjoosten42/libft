@@ -20,10 +20,3 @@ fclean: clean
 re: fclean all
 
 .PHONY = all clean fclean re
-
-test:
-	gcc -Wall -Werror -Wextra *.c
-	@./a.out
-
-testclean:
-	rm a.out
