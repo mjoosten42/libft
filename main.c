@@ -1,8 +1,11 @@
 #include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 int	main(void)
 {
-	printf("%s\n", "abc");
+	char	**strs;
+
+	strs = ft_split("", ' ');
+	while (*strs)
+		printf("%s\n", *(strs++));
 }
