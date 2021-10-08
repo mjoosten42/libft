@@ -5,7 +5,7 @@ char	*ft_strrchr(char *str, int c)
 	i = 0;
 	while (*(str + i))
 		i++;
-	while (i)
+	while (i >= 0)
 	{
 		if (*(str + i) == c)
 			return (str = str + i);

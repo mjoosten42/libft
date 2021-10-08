@@ -7,6 +7,8 @@ int	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	int	len;
 
 	len = ft_strlen(src);
+	if (!dstsize)
+		return (ft_strlen(src));
 	while (*src && --dstsize)
 		*dst++ = *src++;
 	*dst = 0;

@@ -1,6 +1,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+size_t	ft_strlen(const char *str);
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
@@ -12,7 +14,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	while (start--)
 	{
 		if (!*s)
-			return (0);
+			return ((char *)s);
 		s++;
 	}
 	while (len-- && *s)
