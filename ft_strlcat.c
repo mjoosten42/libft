@@ -6,11 +6,9 @@ size_t	ft_strlcat(char *dst, const char *src, int dstsize)
 {
 	size_t	len;
 
-	if (!dstsize)
-		return (ft_strlen(src));
 	len = ft_strlen(dst) + ft_strlen(src);
-	if (dstsize == 1)
-		dst++;
+	if (dstsize <= (int)(ft_strlen(dst)))
+		return (len);
 	while (*dst && dstsize - 1)
 	{
 		dst++;

@@ -1,5 +1,6 @@
 #include <stdlib.h>
 
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 static void	ft_recItoa(int n, char *str);
 
 char	*ft_itoa(int n)
@@ -11,16 +12,19 @@ char	*ft_itoa(int n)
 
 	min = 0;
 	if (n == -2147483648)
-		return (str = "-2147483648");
+	{
+		str = malloc(12);
+		ft_strlcpy(str, "-2147483648", 12);
+		return (str);
+	}
 	if (n < 0 && ++min)
 		n = -n;
 	m = n;
 	i = 0;
 	while (m >= 10 && ++i)
 		m /= 10;
-	str = malloc(i + min + 1);
-	if (!str)
-		return (0);
+	str = malloc(i + min + 2);
+	*(str + i + min + 1) = 0;
 	if (min)
 		*str = '-';
 	ft_recItoa(n, str + i + min);

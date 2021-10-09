@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-char	*ft_strchr(char *str, int c);
-size_t	ft_strlen(const char *str);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+static char	*ft_strchr(char *str, int c);
+size_t		ft_strlen(const char *str);
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -11,12 +11,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		len;
 
 	while (ft_strchr((char *)set, *(char *)s1))
-	{
 		s1++;
-		if (!*s1)
-			return (0);
-	}
 	len = ft_strlen(s1);
+	if (!len)
+		len = 1;
 	while (ft_strchr((char *)set, *((char *)s1 + len - 1)))
 		len--;
 	str = malloc(len + 1);
@@ -24,4 +22,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (0);
 	ft_strlcpy(str, s1, len + 1);
 	return (str);
+}
+
+static char	*ft_strchr(char *str, int c)
+{
+	while (*str != c && *str)
+		str++;
+	if (*str)
+		return (str);
+	return (0);
 }
