@@ -8,6 +8,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*ret;
 
 	str = (char *)malloc(len + 1);
+	if (!str)
+		return (0);
 	ret = str;
 	*(str + len) = 0;
 	while (start--)

@@ -6,7 +6,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	ptr = *lst;
 	if (ptr)
+	{
 		while (ptr->next)
 			ptr = ptr->next;
-	ptr = new;
+		ptr->next = new;
+	}
+	else
+		ptr = new;
 }

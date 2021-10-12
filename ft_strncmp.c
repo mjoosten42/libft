@@ -10,7 +10,7 @@ int	ft_strncmp(char	*s1, char *s2, size_t n)
 	str2 = (unsigned char *)s2;
 	if (!n)
 		return (0);
-	while (--n && *str1 == *str2)
+	while (--n && *str1 == *str2 && *str1)
 	{
 		str1++;
 		str2++;

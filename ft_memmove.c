@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include "libft.h"
 
-static int	ft_strOverlap(void *dst, const void *src);
+static int	ft_strOverlap(char *dst, char*src, size_t len);
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
@@ -10,7 +10,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	dest = (char *)dst;
 	source = (char *)src;
-	if (ft_strOverlap(dst, src))
+	if (!(dst || src))
+		return (0);
+	if (ft_strOverlap(dest, source, len))
 		while (len--)
 			*(dest + len) = *(source + len);
 	else
@@ -19,9 +21,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 
-static int	ft_strOverlap(void *dst, const void *src)
+static int	ft_strOverlap(char *dst, char *src, size_t len)
 {
-	while (*(char *)src)
+	while (len--)
 	{
 		if (dst == src)
 			return (1);

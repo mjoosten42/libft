@@ -3,9 +3,13 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*s;
+	char	c;
 
-	s = ft_itoa(n);
-	while (*s)
-		write(fd, s++, 1);
+	if (n / 10)
+		ft_putnbr_fd(n / 10, fd);
+	if (n > 0)
+		c = '0' + n % 10;
+	else
+		c = '0' - (n % 10);
+	write(fd, &c, 1);
 }

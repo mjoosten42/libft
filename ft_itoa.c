@@ -13,7 +13,7 @@ char	*ft_itoa(int n)
 	min = 0;
 	if (n == -2147483648)
 	{
-		str = malloc(12);
+		str = (char *)malloc(12);
 		ft_strlcpy(str, "-2147483648", 12);
 		return (str);
 	}
@@ -24,6 +24,8 @@ char	*ft_itoa(int n)
 	while (m >= 10 && ++i)
 		m /= 10;
 	str = malloc(i + min + 2);
+	if (!str)
+		return (0);
 	*(str + i + min + 1) = 0;
 	if (min)
 		*str = '-';

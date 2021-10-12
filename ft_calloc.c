@@ -9,6 +9,8 @@ void	*ft_calloc(size_t count, size_t size)
 
 	len = count * size;
 	ret = malloc(len);
+	if (!ret)
+		return (0);
 	while (len--)
 		*((char *)ret + len) = 0;
 	return (ret);
