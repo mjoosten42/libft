@@ -1,6 +1,5 @@
 #include <stdlib.h>
-
-size_t	ft_strlen(const char *str);
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "libft.h"
 
 static int	ft_wordcount(char const *s, char c);
 static int	ft_wordlength(char const *s, char c);
@@ -12,6 +13,8 @@ char	**ft_split(char const *s, char c)
 	while (*s == c)
 		s++;
 	strs = malloc((ft_wordcount(s, c) + 1) * sizeof(char **));
+	if (!strs)
+		return (0);
 	i = 0;
 	while (*s)
 	{

@@ -9,14 +9,14 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-int		ft_isalpha(char c);
-int		ft_isdigit(char c);
-int		ft_isalnum(char c);
-int		ft_isascii(char c);
-int		ft_isprint(char c);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
 
-char	ft_toupper(char c);
-char	ft_tolower(char c);
+char	ft_toupper(int c);
+char	ft_tolower(int c);
 
 int		ft_strncmp(char *s1, char *s2, size_t n);
 char	*ft_strchr(char *str, int c);
@@ -46,7 +46,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char	*ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);

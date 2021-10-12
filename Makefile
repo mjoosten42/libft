@@ -1,4 +1,5 @@
 NAME = libft.a
+CC = gcc
 FLAGS = -Wall -Werror -Wextra -c
 SRC = 	ft_isalpha.c	\
 		ft_isdigit.c	\
@@ -27,6 +28,8 @@ SRC = 	ft_isalpha.c	\
 						\
 		ft_calloc.c		\
 		ft_strdup.c		\
+						\
+		ft_substr.c		\
 		ft_strjoin.c	\
 		ft_strtrim.c	\
 		ft_split.c		\
@@ -47,8 +50,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar -crs $(NAME) $(OBJ)
 
-$(OBJ): $(SRC)
-	gcc $(FLAGS) $(SRC)
+%.o : %.c
+	$(CC) $(FLAGS) $^
 
 clean:
 	rm -f $(OBJ) $(BONUSOBJ)
@@ -58,19 +61,19 @@ fclean: clean
 
 re: fclean all
 
-BONUSSRC = 	ft_lstnew.c			\
-			ft_lstadd_front.c	\
-			ft_lstsize.c		\
-			ft_lstlast.c		\
-			ft_lstadd_back.c	\
-			ft_lstdelone.c		\
-			ft_lstiter.c		\
-			ft_lstmap.c
+BONUSSRC = 	ft_lstnew_bonus.c		\
+			ft_lstadd_front_bonus.c	\
+			ft_lstsize_bonus.c		\
+			ft_lstlast_bonus.c		\
+			ft_lstadd_back_bonus.c	\
+			ft_lstclear_bonus.c		\
+			ft_lstdelone_bonus.c	\
+			ft_lstiter_bonus.c		\
+			ft_lstmap_bonus.c
 
 BONUSOBJ = $(BONUSSRC:.c=.o)
 
 bonus: $(BONUSOBJ)
-	gcc $(FLAGS) $(BONUSSRC)
 	ar -rs $(NAME) $(BONUSOBJ)
 
 .PHONY = all clean fclean re bonus

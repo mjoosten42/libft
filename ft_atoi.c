@@ -1,5 +1,6 @@
+#include "libft.h"
+
 static int	ft_isspace(char c);
-static int	ft_isdigit(int c);
 
 int	ft_atoi(const char *str)
 {
@@ -37,13 +38,6 @@ static int	ft_isspace(char c)
 	if (c == '\r')
 		return (1);
 	if (c == ' ')
-		return (1);
-	return (0);
-}
-
-static int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }

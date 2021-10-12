@@ -1,20 +1,19 @@
 #include <stddef.h>
 #include <stdlib.h>
-
-size_t	ft_strlen(const char *str);
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	char	*ret;
 
-	str = malloc(len + 1);
+	str = (char *)malloc(len + 1);
 	ret = str;
 	*(str + len) = 0;
 	while (start--)
 	{
 		if (!*s)
-			return ((char *)s);
+			return (ft_strdup(s));
 		s++;
 	}
 	while (len-- && *s)

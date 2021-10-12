@@ -1,6 +1,5 @@
 #include <stdlib.h>
-
-size_t	ft_strlen(const char *str);
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
