@@ -12,11 +12,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 		i = 0;
 		while (*(haystack + i) == *(needle + i))
 		{
-			i++;
+			if (!(*(needle + i + 1)))
+				return ((char *)haystack);
 			if (i > (int)n)
 				break ;
-			if (!(*(needle + i)))
-				return ((char *)haystack);
+			i++;
 		}
 		haystack++;
 	}
