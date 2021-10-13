@@ -54,14 +54,14 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $^
 
 clean:
-	rm -f $(OBJ) $(BONUSOBJ)
+	rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-BONUSSRC = 	ft_lstnew_bonus.c		\
+BONUS_SRC = 	ft_lstnew_bonus.c		\
 			ft_lstadd_front_bonus.c	\
 			ft_lstsize_bonus.c		\
 			ft_lstlast_bonus.c		\
@@ -71,9 +71,9 @@ BONUSSRC = 	ft_lstnew_bonus.c		\
 			ft_lstiter_bonus.c		\
 			ft_lstmap_bonus.c
 
-BONUSOBJ = $(BONUSSRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
-bonus: $(BONUSOBJ)
-	ar -rs $(NAME) $(BONUSOBJ)
+bonus: $(BONUS_OBJ)
+	ar -rs $(NAME) $(BONUS_OBJ)
 
 .PHONY = all clean fclean re bonus
