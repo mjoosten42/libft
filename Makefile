@@ -61,7 +61,7 @@ fclean: clean
 
 re: fclean all
 
-BONUS_SRC = 	ft_lstnew_bonus.c		\
+BONUS_SRC = ft_lstnew_bonus.c		\
 			ft_lstadd_front_bonus.c	\
 			ft_lstsize_bonus.c		\
 			ft_lstlast_bonus.c		\
@@ -73,7 +73,7 @@ BONUS_SRC = 	ft_lstnew_bonus.c		\
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
-bonus: $(BONUS_OBJ)
-	ar -rs $(NAME) $(BONUS_OBJ)
+bonus: $(OBJ$(BONUS_OBJ)
+	ar -crs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 .PHONY = all clean fclean re bonus
