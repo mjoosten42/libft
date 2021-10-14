@@ -73,7 +73,7 @@ BONUS_SRC = ft_lstnew_bonus.c		\
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
-bonus: $(OBJ$(BONUS_OBJ)
+bonus: $(OBJ) $(BONUS_OBJ)
 	ar -crs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 .PHONY = all clean fclean re bonus
