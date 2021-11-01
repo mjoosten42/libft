@@ -6,14 +6,14 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 13:20:45 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/10/28 13:20:46 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/11/01 10:55:02 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static void	ft_recItoa(int n, char *str);
+static void	ft_recitoa(int n, char *str);
 
 char	*ft_itoa(int n)
 {
@@ -37,13 +37,13 @@ char	*ft_itoa(int n)
 	*(str + i + min + 1) = 0;
 	if (min)
 		*str = '-';
-	ft_recItoa(n, str + i + min);
+	ft_recitoa(n, str + i + min);
 	return (str);
 }
 
-static void	ft_recItoa(int n, char *str)
+static void	ft_recitoa(int n, char *str)
 {
 	if (n >= 10)
-		ft_recItoa(n / 10, str - 1);
+		ft_recitoa(n / 10, str - 1);
 	*str = '0' + n % 10;
 }
