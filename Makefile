@@ -48,10 +48,10 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -crs $(NAME) $(OBJ)
 
 %.o : %.c
 	$(CC) $(FLAGS) $^
+	ar -crs $(NAME) $@
 
 clean:
 	rm -f $(OBJ) $(BONUS_OBJ)
@@ -73,7 +73,6 @@ BONUS_SRC = ft_lstnew_bonus.c		\
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
-bonus: $(OBJ) $(BONUS_OBJ)
-	ar -crs $(NAME) $(OBJ) $(BONUS_OBJ)
+bonus: $(BONUS_OBJ)
 
 .PHONY = all clean fclean re bonus
