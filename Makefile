@@ -53,7 +53,8 @@ SRC = 	ft_isalpha.c		\
 		ft_lstiter.c		\
 		ft_lstmap.c			\
 							\
-		ft_free_array.c
+		ft_free_array.c		\
+		ft_get_next_line.c
 
 OBJ = $(SRC:.c=.o)
 
