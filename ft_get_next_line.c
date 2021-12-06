@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 12:18:41 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/06 17:49:17 by mjoosten         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:57:53 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	char	*make_line(int fd, int len);
 
-char	*get_next_line(int fd)
+char	*ft_get_next_line(int fd)
 {
 	char	c;
 	off_t	len;
