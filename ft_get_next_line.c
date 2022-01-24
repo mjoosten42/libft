@@ -5,49 +5,103 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 12:18:41 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/06 17:57:53 by mjoosten         ###   ########.fr       */
+/*   Created: 2021/11/01 14:53:38 by mjoosten          #+#    #+#             */
+/*   Updated: 2022/01/24 14:05:42 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char	*make_line(int fd, int len);
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 42
+#endif
 
-char	*ft_get_next_line(int fd)
+int			ft_linelen(char *buf);
+void		ft_rmline(char *buf);
+static char	*ft_strsjoin(t_list **lst);
+static int	ft_strslen(t_list **lst);
+static void	del(void *content);
+
+char	*get_next_line(int fd)
 {
-	char	c;
-	off_t	len;
-	int		bytesread;
+	static char	buf[BUFFER_SIZE + 1];
+	char		*str;
+	int			bytes_read;
+	t_list		*lst;
 
-	bytesread = read(fd, &c, 1);
-	len = 0;
-	while (bytesread > 0)
+	if (read(fd, buf, 0) < 0 || *buf == 127)
+		return (0);
+	lst = 0;
+	ft_lstadd_back(&lst, ft_lstnew(ft_strdup(buf)));
+	while (ft_linelen(buf) == -1)
 	{
-		len++;
-		if (c == '\n')
-			break ;
-		bytesread = read(fd, &c, 1);
-		if (bytesread < 0)
+		bytes_read = read(fd, buf, BUFFER_SIZE);
+		if (bytes_read < 0)
 			return (0);
+		if (bytes_read < BUFFER_SIZE)
+			buf[bytes_read] = 127;
+		ft_lstadd_back(&lst, ft_lstnew(ft_strdup(buf)));
 	}
-	return (make_line(fd, len));
+	ft_rmline(buf);
+	str = ft_strsjoin(&lst);
+	ft_lstclear(&lst, del);
+	return (str);
 }
 
-static	char	*make_line(int fd, int len)
+static char	*ft_strsjoin(t_list **lst)
 {
 	char	*str;
+	t_list	*ptr;
+	int		i;
 
-	if (!len)
+	if (!ft_strslen(lst))
 		return (0);
-	str = malloc(len + 1);
+	str = malloc(ft_strslen(lst) + 1);
 	if (!str)
 		return (0);
-	if (lseek(fd, -len, SEEK_CUR) < 0 || read(fd, str, len) < 0)
+	ptr = *lst;
+	while (ptr)
 	{
-		free(str);
-		return (0);
+		i = 0;
+		while (*(char *)(ptr->content + i)
+			&& *(char *)(ptr->content + i) != 127)
+		{
+			*str++ = *((char *)ptr->content + i);
+			if (*(char *)(ptr->content + i) == '\n')
+				break ;
+			i++;
+		}
+		ptr = ptr->next;
 	}
-	str[len] = 0;
-	return (str);
+	*str = 0;
+	return (str - ft_strslen(lst));
+}
+
+static int	ft_strslen(t_list **lst)
+{
+	t_list	*ptr;
+	int		len;
+	int		i;
+
+	len = 0;
+	ptr = *lst;
+	while (ptr)
+	{
+		i = 0;
+		while (*(char *)(ptr->content + i)
+			&& *(char *)(ptr->content + i) != 127)
+		{
+			if (*(char *)(ptr->content + i) == '\n')
+				return (len + 1);
+			i++;
+			len++;
+		}
+		ptr = ptr->next;
+	}
+	return (len);
+}
+
+static void	del(void *content)
+{
+	free(content);
 }
