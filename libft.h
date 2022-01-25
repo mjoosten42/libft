@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 16:32:03 by mjoosten          #+#    #+#             */
-/*   Updated: 2021/12/06 17:55:26 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/01/24 16:58:57 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -78,5 +79,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 void	ft_free_array(void **array);
 char	*ft_get_next_line(int fd);
+
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+int		ft_putnbr(int n);
+int		ft_putnbr_base(int nbr, char *base);
+int		ft_printf(char *format, ...);
 
 #endif
