@@ -6,16 +6,17 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 16:32:03 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/03/01 13:44:43 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:51:38 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdarg.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
 
 typedef struct s_list
 {
