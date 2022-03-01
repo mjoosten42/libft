@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 16:32:03 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/24 16:58:57 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:44:43 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-void	ft_free_array(void **array);
 char	*ft_get_next_line(int fd);
 
 int		ft_putchar(char c);
@@ -85,5 +84,8 @@ int		ft_putstr(char *str);
 int		ft_putnbr(int n);
 int		ft_putnbr_base(int nbr, char *base);
 int		ft_printf(char *format, ...);
+
+void	ft_free_array(void **array);
+void	ft_error(char *str);
 
 #endif
