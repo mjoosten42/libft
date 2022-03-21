@@ -1,6 +1,7 @@
 NAME = libft.a
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -c
+FLAGS = -Wall -Werror -Wextra -I include 
+
 SRC = 	ft_isalpha.c				\
 		ft_isdigit.c				\
 		ft_isalnum.c				\
@@ -65,18 +66,20 @@ SRC = 	ft_isalpha.c				\
 		ft_putnbr_base.c			\
 		ft_printf.c
 
-OBJ = $(SRC:.c=.o)
+OBJDIR = obj
+OBJ = $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar -crs $@ $^
 
-%.o : %.c
-	$(CC) $(FLAGS) $^
+$(OBJDIR)/%.o: src/%.c
+	@mkdir -p $(OBJDIR)
+	$(CC) $(FLAGS) -c $^ -o $@
 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
