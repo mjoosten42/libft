@@ -6,13 +6,13 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:46:06 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/01/24 16:29:57 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:38:59 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr_base(int nbr, char *base)
+int	ft_putnbr_base(long nbr, char *base)
 {
 	int	size;
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 16:32:03 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/03/21 13:13:52 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:39:11 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*ft_get_next_line(int fd);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		ft_putnbr(int n);
-int		ft_putnbr_base(int nbr, char *base);
+int		ft_putnbr_base(long nbr, char *base);
 int		ft_printf(char *format, ...);
 
 void	ft_free_array(void *array);

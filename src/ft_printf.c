@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:43:56 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/02/24 15:26:54 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:38:48 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int	ft_percent(char c, va_list ap);
 
 int	ft_printf(char *format, ...)
 {
-	int		len;
 	va_list	ap;
+	int		len;
 
 	len = 0;
 	va_start(ap, format);
@@ -39,7 +39,8 @@ static int	ft_percent(char c, va_list ap)
 	if (c == 's')
 		return (ft_putstr(va_arg(ap, char *)));
 	if (c == 'p')
-		return (ft_printf("0x%x", va_arg(ap, long)));
+		return (ft_putstr("0x")
+			+ ft_putnbr_base(va_arg(ap, long), "0123456789abcdef"));
 	if (c == 'd' || c == 'i')
 		return (ft_putnbr(va_arg(ap, int)));
 	if (c == 'u')
