@@ -66,7 +66,8 @@ SRC = 	ft_isalpha.c				\
 		ft_putnbr_base.c			\
 		ft_printf.c					\
 									\
-		ft_malloc.c
+		ft_malloc.c					\
+		ft_argsize.c				\
 
 OBJDIR = obj
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.c=.o))

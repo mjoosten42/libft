@@ -6,7 +6,7 @@
 /*   By: mjoosten <mjoosten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 16:32:03 by mjoosten          #+#    #+#             */
-/*   Updated: 2022/03/24 15:39:11 by mjoosten         ###   ########.fr       */
+/*   Updated: 2022/05/31 10:28:16 by mjoosten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		ft_printf(char *format, ...);
 
 void	ft_free_array(void *array);
 void	ft_error(char *str);
-
 void	*ft_malloc(size_t size);
+int		ft_argsize(void *ptr);
 
 #endif
